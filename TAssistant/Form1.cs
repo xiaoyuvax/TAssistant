@@ -4,12 +4,11 @@ namespace TAssistant
 {
     public partial class frmTA : Form
     {
+        private string LastText;
+
         public frmTA()
         {
             InitializeComponent();
-
-
-
         }
 
         public async void Translate(string oText)
@@ -31,27 +30,10 @@ namespace TAssistant
 
             textBox1.Text = resultMerged;
             this.BringToFront();
-
         }
-
-        private string LastText;
-
         private void button1_Click(object sender, EventArgs e)
         {
             TranslateClipBoard();
-
-        }
-
-        private void TranslateClipBoard()
-        {
-            var newText = Clipboard.GetText().Replace("#", "").Replace("@", "").Replace("\r\n\r\n", "\r\n");
-
-            if (LastText != newText) Translate(LastText = newText);
-        }
-
-        private void frmTA_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -59,9 +41,13 @@ namespace TAssistant
             timer1.Enabled = checkBox1.Checked;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            TranslateClipBoard();
+            this.TopMost = checkBox2.Checked;
+        }
+
+        private void frmTA_Load(object sender, EventArgs e)
+        {
         }
 
         private void textBox1_DoubleClick(object sender, EventArgs e)
@@ -69,9 +55,16 @@ namespace TAssistant
             Clipboard.SetText(textBox1.Text);
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            this.TopMost = checkBox2.Checked;
+            TranslateClipBoard();
+        }
+
+        private void TranslateClipBoard()
+        {
+            var newText = Clipboard.GetText().Replace("#", "").Replace(",", "£¬").Replace(".", "¡£").Replace("@", "").Replace("\r\n\r\n", "\r\n");
+
+            if (LastText != newText) Translate(LastText = newText);
         }
     }
 }
