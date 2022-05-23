@@ -13,6 +13,7 @@ namespace TAssistant
 
         public async void Translate(string oText)
         {
+            if (string.IsNullOrEmpty(oText.Trim())) return;
             var translator = new GoogleTranslator();
             Language from = Language.Auto;
             Language to = GoogleTranslator.GetLanguageByName("Chinese Simplified");
@@ -28,7 +29,7 @@ namespace TAssistant
             //There is also original text transcription
             string transcription = result.TranslatedTextTranscription;
 
-            textBox1.Text = resultMerged;
+            textBox1.Text = resultMerged.Replace(" ", "");
             this.BringToFront();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -62,9 +63,11 @@ namespace TAssistant
 
         private void TranslateClipBoard()
         {
-            var newText = Clipboard.GetText().Replace("#", "").Replace(",", "£¬").Replace(".", "¡£").Replace("@", "").Replace("\r\n\r\n", "\r\n");
+            var newText = Clipboard.GetText().Replace("#", "").Replace(",", "£¬").Replace(".", "¡£").Replace(":", "£º").Replace("@", "").Replace("\r\n\r\n", "\r\n");
 
-            if (LastText != newText) Translate(LastText = newText);
+            if (LastText != newText)
+                if (chkTrans.Checked) Translate(LastText = newText);
+            else textBox1.Text = LastText = newText;
         }
     }
 }

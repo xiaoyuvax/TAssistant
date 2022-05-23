@@ -34,6 +34,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chkTrans = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -41,20 +42,21 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(12, 61);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.textBox1.Location = new System.Drawing.Point(9, 52);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 34, 2, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(500, 643);
+            this.textBox1.Size = new System.Drawing.Size(390, 547);
             this.textBox1.TabIndex = 0;
             this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(677, 18);
+            this.button1.Location = new System.Drawing.Point(527, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.Size = new System.Drawing.Size(73, 25);
             this.button1.TabIndex = 1;
             this.button1.Text = "翻译";
             this.button1.UseVisualStyleBackColor = true;
@@ -68,9 +70,10 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(28, 23);
+            this.checkBox1.Location = new System.Drawing.Point(22, 20);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(61, 24);
+            this.checkBox1.Size = new System.Drawing.Size(51, 21);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "自动";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -79,23 +82,38 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(131, 23);
+            this.checkBox2.Location = new System.Drawing.Point(102, 20);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(61, 24);
+            this.checkBox2.Size = new System.Drawing.Size(51, 21);
             this.checkBox2.TabIndex = 2;
             this.checkBox2.Text = "前置";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
+            // chkTrans
+            // 
+            this.chkTrans.AutoSize = true;
+            this.chkTrans.Location = new System.Drawing.Point(182, 20);
+            this.chkTrans.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.chkTrans.Name = "chkTrans";
+            this.chkTrans.Size = new System.Drawing.Size(51, 21);
+            this.chkTrans.TabIndex = 2;
+            this.chkTrans.Text = "翻译";
+            this.chkTrans.UseVisualStyleBackColor = true;
+            this.chkTrans.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
             // frmTA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 728);
+            this.ClientSize = new System.Drawing.Size(412, 619);
+            this.Controls.Add(this.chkTrans);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmTA";
             this.Text = "T助手";
             this.Load += new System.EventHandler(this.frmTA_Load);
@@ -111,5 +129,6 @@
         private System.Windows.Forms.Timer timer1;
         private CheckBox checkBox1;
         private CheckBox checkBox2;
+        private CheckBox chkTrans;
     }
 }
