@@ -53,7 +53,20 @@ namespace TAssistant
 
         private void textBox1_DoubleClick(object sender, EventArgs e)
         {
-            Clipboard.SetText(textBox1.Text);
+            try
+            {
+                Clipboard.SetText(textBox1.Text);
+
+            }
+            catch
+            {
+                try
+                {
+                    Clipboard.SetText(textBox1.Text);
+
+                }
+                catch { }
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -67,7 +80,7 @@ namespace TAssistant
 
             if (LastText != newText)
                 if (chkTrans.Checked) Translate(LastText = newText);
-            else textBox1.Text = LastText = newText;
+                else textBox1.Text = LastText = newText;
         }
     }
 }
